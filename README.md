@@ -1,1 +1,2 @@
 # Leetcode
+Records for leetcode
