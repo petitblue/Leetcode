@@ -1,5 +1,5 @@
 # Day 1. 
-## 704 Binary Search (https://leetcode.com/problems/binary-search/solutions/?q=c&orderBy=most_relevant)
+## 704 [Binary Search] (https://leetcode.com/problems/binary-search/solutions/?q=c&orderBy=most_relevant)
 二分查找几个要点：
 - 数组是否有序
 - 确定 mid 
@@ -25,7 +25,7 @@ int search(int* nums, int numsSize, int target){
 }
 ```
 需要注意的是mid 不要写成 (left+right)/2  if right is close to MAXINT, then left+right will create an overflow
-## 27. Remove Element (https://leetcode.com/problems/remove-element/description/)
+## 27. [Remove Element] (https://leetcode.com/problems/remove-element/description/)
 ### Brute force
 - in the first loop, we iterate the array nums, and check each element if it equals to val. Remember that, 
   the size of the array will change when an element is deleted.
@@ -70,7 +70,7 @@ Time complexity is O(n*n)
  fast move each time to iterate the array, nums[slow] store value except target value
  if the target is found, fast++
  if not, nums[slow] = nums [fast]
- '''
+ ```
  int removeElement(int* nums, int numsSize, int val){
    int ans = numsSize;
    if(nums == NULL) {
@@ -87,4 +87,4 @@ Time complexity is O(n*n)
    }
    return slow;
 }
-'''
+```
