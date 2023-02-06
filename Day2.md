@@ -2,7 +2,7 @@
 https://leetcode.com/problems/squares-of-a-sorted-array/description/
 
 
-'''
+```sh
 **
  * Note: The returned array must be malloced, assume caller calls free().
  */
@@ -30,4 +30,4 @@ int* sortedSquares(int* nums, int numsSize, int* returnSize){
    return arr;
 
 }
-'''
+```sh
