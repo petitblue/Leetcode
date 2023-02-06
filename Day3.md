@@ -18,7 +18,32 @@ class Solution:
                 curr = curr.next
         return head
  ```
+ Tow pointer and Dummy node
+ -dummy node will help to deal with the head node
+ - prev and curr pointer make easier to realize the deletion
  
+ ```sh
+ class Solution:
+    def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
+        dummy = ListNode()
+        dummy.next = head
+        curr = head
+        prev = dummy
+        # prev curr next.                   prev    next
+        # 1.    2.   3    after delete 2.    1.        3 no need to move   prev, but curr move to next 
+        #  if curr.val is not the target, both prev and curr move to next position.                             
+        while ( curr != None): 
+            if curr.val == val:
+                prev.next = curr.next
+                curr = curr.next
+            else:
+                prev = prev.next
+                curr = curr.next
+            
+        
+        return dummy.next
+   ```
+   
  707.Design linked list
  
  ```sh
