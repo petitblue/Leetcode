@@ -46,3 +46,41 @@ class Solution:
         return dummy.next
         
   ```
+
+
+##19. Remove Nth Node From End of List
+https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+
+Two pointer && dummy node
+-use dummy node so it's easier to delete the head node
+- dummy - 1 - 2 -3 - 4 - None.  delete 2nd node from the end 3
+-               left      right
+- to find out the node to delete, we will make the right pointer point to None, and right-left+1  = n
+- however to the notice, if we will delete the node 3, we will need the pointer before the node 3
+- one way is the right pointer move 1 more step, or the left pointer one step back
+```sh
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        dummy = ListNode(0,head)
+        left = dummy
+        right = head
+        # make right and left's distance is n
+        while n> 0 and right != None:
+            right = right.next
+            n -= 1
+        # right pointer move to the none ,
+        while left!= None and right != None:
+            left = left.next
+            right = right.next
+        #delete the ListNode
+        if left and left.next:
+          left.next = left.next.next
+
+        return dummy.next
+```
