@@ -58,3 +58,38 @@ class Solution:
         return counter == counter2
             
 ```
+
+##349. 两个数组的交集
+
+
+ ```sh
+class Solution:
+    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        res = {}
+        ans = []
+        for num in nums1:
+            res[num] = 1
+        for n in nums2:
+            if n in res.keys() and res[n] == 1 :
+                ans.append(n)
+                res[n] = 0
+
+        return ans
+
+ ```
+ 
+ using Counter and set
+ set is to avoid adding duplicate numbers
+ ```sh
+ class Solution:
+    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]: 
+        from collections import Counter
+        c = Counter(nums1)
+        output = set()
+        for n in nums2:
+            if n in c:
+                output.add(n)
+
+        return output
+ 
+```
