@@ -93,3 +93,49 @@ class Solution:
         return output
  
 ```
+## 1. two sum
+https://leetcode.com/problems/two-sum/solutions/
+
+```sh
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        
+      numDict = {}
+      for i, num in enumerate(nums):
+          diff = target-num
+          if diff in numDict:
+              return [ numDict[diff], i]
+          else:
+              numDict[num]=i
+      return
+ 
+```
+
+ ##202. Happy Number          
+        
+https://leetcode.com/problems/happy-number/
+```sh
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        nums = set()
+        # n == 1 or find n in the set 
+        while n:
+            n = self.sumOfSquare(n)
+            if n == 1:
+                return True
+            if n in nums:
+                return False
+            else:
+                nums.add(n)
+                
+ 
+
+    def sumOfSquare(self, n: int) -> int:
+        # 19 first 19 mod 10  =9
+         # second 19 // 10 = 1
+        sum = 0
+        while n != 0:
+            sum += (n % 10) ** 2
+            n  = n // 10
+        return sum
+     ```
