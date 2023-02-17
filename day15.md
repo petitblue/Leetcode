@@ -1,6 +1,9 @@
 
-101. Symmetric Tree
-'''sh
+### 101. Symmetric Tree
+https://leetcode.com/problems/symmetric-tree/
+
+
+```sh
 **
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -29,4 +32,4 @@ bool isSymmetric(struct TreeNode* root){
    }
    return symmetric(root->left,root->right);
 }
-'''
+```
