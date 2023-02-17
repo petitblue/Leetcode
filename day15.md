@@ -1,4 +1,29 @@
+### 226. Invert Binary Tree
+/ Problem #: 226. Invert Binary Tree
+// Level: Easy
+// Link: https://leetcode.com/problems/invert-binary-tree/
+// Name: Luyan Deng
 
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     struct TreeNode *left;
+ *     struct TreeNode *right;
+ * };
+ */
+struct TreeNode* invertTree(struct TreeNode* root){
+    if ( root == NULL) {
+        return root;
+    }
+    // if root is not null, swap the children
+    struct TreeNode* temp = root->left;
+    root->left = root->right;
+    root->right = temp;
+    invertTree(root->left);
+    invertTree(root->right);
+    return root;
+}
 ### 101. Symmetric Tree
 https://leetcode.com/problems/symmetric-tree/
 
