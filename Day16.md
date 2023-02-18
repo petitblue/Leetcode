@@ -76,3 +76,61 @@ int minDepth(struct TreeNode* root){
    return res;
 }
 ```
+##222. Count Complete Tree Nodes
+
+https://leetcode.com/problems/count-complete-tree-nodes/
+
+```sh
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     struct TreeNode *left;
+ *     struct TreeNode *right;
+ * };
+ */
+int countNodes(struct TreeNode* root){
+    if (root == NULL) {
+        return 0;
+    }
+    int leftNum = countNodes(root->left);
+    int rightNum = countNodes(root->right);
+    int num = leftNum + rightNum +1;
+    return num;
+
+}
+```
+- use the concept of complete binatry tree
+```sh
+
+// complete binatry tree node number = 2^h-1  h is the height of the tree
+ //traverse a subtree's left and right , and check if the left and right height the same, if they are then they are complete binatry tree and can use the formular
+ #include<math.h>
+int countNodes(struct TreeNode* root){
+   if(root == NULL) {
+       return 0;
+   }
+   struct TreeNode* left = root->left;
+   struct TreeNode*  right = root->right;
+   int leftHeight = 0;
+   int rightHeight = 0;
+   int num = 0;
+   //traverse a subtree's left and right 
+   while(left) {
+       left = left->left;
+       leftHeight ++;
+   }
+   while(right) {
+       right= right->right;
+       rightHeight ++;
+   }
+   // check if the left and right height the same,
+   if(leftHeight == rightHeight) {
+      num = pow(2,leftHeight) -1;
+   }
+   //recursion
+   int leftNum = countNodes(root->left);
+   int rightNum = countNodes(root->right);
+   return 1+leftNum+rightNum;
+ }
+ ```
