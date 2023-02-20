@@ -65,7 +65,9 @@ char ** binaryTreePaths(struct TreeNode* root, int* returnSize){
 
 ```
 ##404. Sum of Left Leaves
+
 https://leetcode.com/problems/sum-of-left-leaves/
+
 -what's left leaves: node->left, node-> right are null; node is the parent node's left node. 
 - that's node->left, and  node->left->left == NULL && node->left->right == NULL
 - use post order traveral, as we traverse to the leaves node and return values to the previous level node.
