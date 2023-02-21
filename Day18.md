@@ -36,3 +36,40 @@ int findBottomLeftValue(struct TreeNode* root){
 
 }
 ```
+
+## 112. Path Sum
+
+https://leetcode.com/problems/path-sum/
+
+```sh
+
+bool traversal(struct TreeNode* root,int count){
+    if(root == NULL){return false;}
+    
+    if(root->left == NULL && root->right == NULL&&count == 0){
+        return true;}
+    else if(root->left == NULL && root->right == NULL&&count != 0){
+        return false;
+    }
+       
+      
+  
+  
+  if(root->left) {
+      count -= root->left->val;
+      if(traversal(root->left, count)){return true;}
+      count += root->left->val;
+  }
+  if(root->right) {
+      count -= root->right->val;
+      if (traversal(root->right,count)){return true;}
+      count += root->right->val;
+  }
+  return false;
+}
+bool hasPathSum(struct TreeNode* root, int targetSum){
+  if(root == NULL){return false;}
+  return traversal(root,targetSum-root->val);
+}
+
+```
